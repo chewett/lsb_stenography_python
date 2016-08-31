@@ -35,20 +35,19 @@ def get_lsb(a):
 
     return reformatted_img
 
-
-print len(b)
-print len(b[0])
-
+print "Processing blue"
 new_b = np.asarray(get_lsb(b))
+print "Processed blue, processing green"
 new_g = np.asarray(get_lsb(g))
+print "Processed green, processing red"
 new_r = np.asarray(get_lsb(r))
+print "Processed red"
 
 img2 = cv2.merge((new_b,new_g,new_r))
-print img2
 
 cv2.imwrite("decoded.png", img2)
 
-img_show = True
+img_show = False
 
 if img_show is True:
     plt.subplot(121),plt.imshow(img),plt.title('ORIGINAL')
